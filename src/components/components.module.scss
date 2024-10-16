@@ -1,0 +1,83 @@
+.list {
+  @apply py-4 bg-white;
+}
+
+.taskInput {
+  @apply py-4 bg-white w-full relative flex;
+  border-bottom: 1px solid rgba(104, 104, 104, 0.39);
+
+  input {
+    @apply w-full;
+    outline: none;
+  }
+
+  input::-webkit-input-placeholder {
+    opacity: 0.6;
+  }
+
+  button {
+    @apply px-4;
+  }
+
+  button > img {
+    width: 20px;
+    opacity: 0.6;
+  }
+}
+
+.listControl {
+  @apply flex justify-between h-9 items-center;
+
+  div > button {
+    @apply m-3 p-1;
+    border: 1px solid transparent;
+  }
+
+  div > button:hover {
+    border: 1px solid dimgray;
+  }
+}
+
+li {
+  @apply flex items-center py-3;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.144);
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  .customCheckboxContainer {
+    @apply flex px-4 items-center relative cursor-pointer;
+  }
+
+  .customCheckbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    position: relative;
+    transition: border-color 0.2s ease;
+  }
+
+  .customCheckboxContainer:hover .customCheckbox {
+    border-color: #777;
+  }
+
+  input[type="checkbox"]:checked + .customCheckbox {
+    background-color: white;
+    border-color: #ffffff;
+  }
+
+  input[type="checkbox"]:checked + .customCheckbox::before {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 10px;
+    border: solid #4caf50;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    top: 2px;
+    left: 5px;
+  }
+}

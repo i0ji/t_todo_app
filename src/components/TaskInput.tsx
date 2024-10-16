@@ -1,5 +1,7 @@
 import { TaskInputProps } from 'declarations/declarations';
 import React, { useState } from 'react';
+import styles from "./components.module.scss";
+import arrow from "assets/arrows.png";
 
 export default function TaskInput({ addTask }: TaskInputProps) {
   const [inputValue, setInputValue] = useState('');
@@ -15,23 +17,19 @@ export default function TaskInput({ addTask }: TaskInputProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+    <form
+      className={styles.taskInput}
+      onSubmit={handleSubmit}
+    >
+      <button type="submit">
+        <img src={arrow} alt="Add " />
+      </button>
       <input
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         placeholder="What needs to be done?"
       />
-      {/* <label>
-        Completed:
-        <input
-          type="checkbox"
-          checked={completed}
-          onChange={() => setCompleted(!completed)}
-        />
-      </label> */}
-      <button type="submit">Add Task</button>
-      
     </form>
   );
 };

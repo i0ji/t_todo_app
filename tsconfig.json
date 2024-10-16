@@ -26,6 +26,7 @@
         "components/*": ["components/*"],
         "declarations/*": ["declarations/*"],
         "hooks/*": ["hooks/*"],
+        "assets/*": ["assets/*"],
         "styles/*": ["styles/*"],
         "src/*": ["./*"]
       }

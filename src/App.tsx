@@ -1,18 +1,16 @@
-import React from 'react';
 import { useTasks } from './hooks/useTasks';
 import { TaskList, TaskInput } from 'components/index';
 import './App.scss';
 
-const App: React.FC = () => {
-  const { tasks, addTask, toggleTask } = useTasks();
+export default function App() {
+  const { tasks, addTask, toggleTask, removeCompleteTasks } = useTasks();
 
   return (
     <main>
       <h1>todos</h1>
       <TaskInput addTask={addTask} />
-      <TaskList tasks={tasks} toggleTask={toggleTask} />
+      <TaskList tasks={tasks} toggleTask={toggleTask} removeCompleteTasks={removeCompleteTasks} />
     </main>
   );
 };
 
-export default App;

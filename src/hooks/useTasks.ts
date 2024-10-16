@@ -20,5 +20,8 @@ export const useTasks = () => {
     );
   };
 
-  return { tasks, addTask, toggleTask };
+  const removeCompleteTasks = () => {
+    setTasks(tasks.filter((task) => !task.completed));
+  };
+  return { tasks, addTask, toggleTask, removeCompleteTasks };
 };
