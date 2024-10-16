@@ -5,7 +5,9 @@
 @import "styles/_font.scss";
 
 body {
-  @apply flex justify-center items-center bg-slate-200;
+  @apply flex justify-center bg-gray-50;
+  position: relative;
   width: 100vw;
   height: 100vh;
+  padding-top: 10rem;
 }

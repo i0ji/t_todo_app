@@ -3,6 +3,12 @@ export interface TaskItemProps {
   toggleTask: (id: number) => void;
 }
 
+interface TaskListProps {
+  tasks: TaskModel[];
+  toggleTask: (id: number) => void;
+}
+
+
 interface TaskInputProps {
   addTask: (title: string, completed: boolean) => void;
 }

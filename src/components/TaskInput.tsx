@@ -20,17 +20,18 @@ export default function TaskInput({ addTask }: TaskInputProps) {
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Enter a new task"
+        placeholder="What needs to be done?"
       />
-      <label>
+      {/* <label>
         Completed:
         <input
           type="checkbox"
           checked={completed}
           onChange={() => setCompleted(!completed)}
         />
-      </label>
+      </label> */}
       <button type="submit">Add Task</button>
+      
     </form>
   );
 };

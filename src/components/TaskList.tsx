@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
-import { TaskModel } from 'declarations/declarations';
+import { useState } from 'react';
+import { TaskListProps } from 'declarations/declarations';
 import TaskItem from './TaskItem';
 
-interface TaskListProps {
-    tasks: TaskModel[];
-    toggleTask: (id: number) => void;
-}
-
-const TaskList: React.FC<TaskListProps> = ({ tasks, toggleTask }) => {
-    const [filter, setFilter] = useState<'all' | 'completed' | 'incomplete'>('all');
+export default function TaskList({ tasks, toggleTask }: TaskListProps) {
+    const [filter, setFilter] = useState<'all' | 'complet' | 'incomplete'>('all');
 
     const filteredTasks = tasks.filter((task) => {
-        if (filter === 'completed') {
+        if (filter === 'complet') {
             return task.completed;
         }
         if (filter === 'incomplete') {
@@ -30,11 +25,9 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, toggleTask }) => {
 
             <div style={{ marginTop: '20px' }}>
                 <button onClick={() => setFilter('all')}>All</button>
-                <button onClick={() => setFilter('completed')}>Completed</button>
+                <button onClick={() => setFilter('complet')}>Completed</button>
                 <button onClick={() => setFilter('incomplete')}>Incomplete</button>
             </div>
         </div>
     );
 };
-
-export default TaskList;
