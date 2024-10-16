@@ -13,8 +13,7 @@ export default function TaskItem({ task, toggleTask }: TaskItemProps) {
                 <span className={styles.customCheckbox}></span>
             </label>
             <span
-                // style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
-                className={ task.completed ? styles.taskComplete : ''}
+                className={task.completed ? styles.taskComplete : ''}
             >
                 {task.title}
             </span>
