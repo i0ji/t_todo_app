@@ -1,31 +1,36 @@
+import { TaskInputProps } from 'declarations/declarations';
 import React, { useState } from 'react';
 
-interface TaskInputProps {
-  addTask: (task: string) => void;
-}
-
-const TaskInput: React.FC<TaskInputProps> = ({ addTask }) => {
+export default function TaskInput({ addTask }: TaskInputProps) {
   const [inputValue, setInputValue] = useState('');
+  const [completed, setCompleted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (inputValue.trim()) {
-      addTask(inputValue);
+      addTask(inputValue, completed);
       setInputValue('');
+      setCompleted(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
       <input
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Add a new task"
+        placeholder="Enter a new task"
       />
+      <label>
+        Completed:
+        <input
+          type="checkbox"
+          checked={completed}
+          onChange={() => setCompleted(!completed)}
+        />
+      </label>
       <button type="submit">Add Task</button>
     </form>
   );
 };
-
-export default TaskInput;

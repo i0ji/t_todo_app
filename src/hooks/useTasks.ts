@@ -3,12 +3,11 @@ import { TaskModel } from "declarations/declarations";
 
 export const useTasks = () => {
   const [tasks, setTasks] = useState<TaskModel[]>([]);
-
-  const addTask = (title: string) => {
+  const addTask = (title: string, completed: boolean) => {
     const newTask: TaskModel = {
       id: tasks.length + 1,
       title,
-      completed: false,
+      completed,
     };
     setTasks([...tasks, newTask]);
   };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TaskModel } from 'declarations/declarations';
 import TaskItem from './TaskItem';
 
@@ -8,24 +8,31 @@ interface TaskListProps {
 }
 
 const TaskList: React.FC<TaskListProps> = ({ tasks, toggleTask }) => {
-    const incompleteTasks = tasks.filter(task => !task.completed);
-    const completedTasks = tasks.filter(task => task.completed);
+    const [filter, setFilter] = useState<'all' | 'completed' | 'incomplete'>('all');
+
+    const filteredTasks = tasks.filter((task) => {
+        if (filter === 'completed') {
+            return task.completed;
+        }
+        if (filter === 'incomplete') {
+            return !task.completed;
+        }
+        return true;
+    });
 
     return (
         <div>
-            <h2>Incomplete Tasks</h2>
             <ul>
-                {incompleteTasks.map(task => (
+                {filteredTasks.map((task) => (
                     <TaskItem key={task.id} task={task} toggleTask={toggleTask} />
                 ))}
             </ul>
 
-            <h2>Completed Tasks</h2>
-            <ul>
-                {completedTasks.map(task => (
-                    <TaskItem key={task.id} task={task} toggleTask={toggleTask} />
-                ))}
-            </ul>
+            <div style={{ marginTop: '20px' }}>
+                <button onClick={() => setFilter('all')}>All</button>
+                <button onClick={() => setFilter('completed')}>Completed</button>
+                <button onClick={() => setFilter('incomplete')}>Incomplete</button>
+            </div>
         </div>
     );
 };
