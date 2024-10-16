@@ -3,7 +3,7 @@ import styles from "./components.module.scss";
 
 export default function TaskItem({ task, toggleTask }: TaskItemProps) {
     return (
-        <li>
+        <li className={styles.listItem}>
             <label className={styles.customCheckboxContainer}>
                 <input
                     type="checkbox"
@@ -12,7 +12,10 @@ export default function TaskItem({ task, toggleTask }: TaskItemProps) {
                 />
                 <span className={styles.customCheckbox}></span>
             </label>
-            <span style={{ textDecoration: task.completed ? 'line-through' : 'none'  }}>
+            <span
+                // style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+                className={ task.completed ? styles.taskComplete : ''}
+            >
                 {task.title}
             </span>
 

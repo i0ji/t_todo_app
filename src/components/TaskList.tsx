@@ -20,19 +20,18 @@ export default function TaskList({
         return true;
     });
 
-    // const handleClearComplete = 
 
     const itemsLeft = tasks.filter(task => !task.completed).length;
 
     return (
-        <section className={styles.list}>
+        <section className={styles.taskList}>
             <ul>
                 {filteredTasks.map((task) => (
                     <TaskItem key={task.id} task={task} toggleTask={toggleTask} />
                 ))}
             </ul>
 
-            <div className={styles.listControl}>
+            <div className={styles.taskListControl}>
                 <p>{itemsLeft} item left</p>
                 <div>
                     <button onClick={() => setFilter('all')}>All</button>
