@@ -29,13 +29,16 @@ export default function TaskList({
     };
 
     return (
-        <section className={styles.taskList}>
-            <ul>
-                {filteredTasks.map((task) => (
-                    <TaskItem key={task.id} task={task} toggleTask={toggleTask} />
-                ))}
-            </ul>
+        <>
+            <section className={styles.taskList}>
+                <ul>
+                    {filteredTasks.map((task) => (
+                        <TaskItem key={task.id} task={task} toggleTask={toggleTask} />
+                    ))}
+                </ul>
 
+
+            </section>
             <div className={styles.taskListControl}>
                 <p>{itemsLeft} item left</p>
                 <div>
@@ -60,6 +63,6 @@ export default function TaskList({
                 </div>
                 <button onClick={() => removeCompleteTasks()}>Clear completed</button>
             </div>
-        </section>
+        </>
     );
 };

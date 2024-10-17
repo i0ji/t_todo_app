@@ -5,6 +5,8 @@
   input {
     @apply w-full;
     outline: none;
+    overflow-wrap: break-word;
+    word-break: break-all;
   }
 
   input::-webkit-input-placeholder {
@@ -21,70 +23,95 @@
   }
 }
 
-.listItem {
-  @apply flex items-center py-3;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.144);
+.taskList {
+  @apply bg-white flex-grow;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
-  input[type="checkbox"] {
-    display: none;
-  }
+  ul {
+    @apply overflow-y-auto;
+    max-height: 70vh;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
 
-  .customCheckboxContainer {
-    @apply flex px-4 items-center relative cursor-pointer;
-  }
+    li {
+      @apply flex items-center py-3;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.144);
+      overflow-wrap: break-word;
+      word-break: break-all;
+      span {
+        @apply pr-2;
+      }
 
-  .customCheckbox {
-    @apply inline-block relative;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 1px solid #ccc;
-    transition: border-color 0.2s ease;
-  }
+      input[type="checkbox"] {
+        display: none;
+      }
 
-  .customCheckboxContainer:hover .customCheckbox {
-    border-color: #777;
-  }
+      .checkboxContainer {
+        @apply flex px-4 items-center relative cursor-pointer;
+      }
 
-  input[type="checkbox"]:checked + .customCheckbox {
-    background-color: white;
-    border-color: #777;
-  }
+      .checkbox {
+        @apply inline-block relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        transition: border-color 0.2s ease;
+      }
 
-  input[type="checkbox"]:checked + .customCheckbox::before {
-    @apply absolute;
-    content: "";
-    width: 6px;
-    height: 10px;
-    border: solid #4caf50;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-    top: 3px;
-    left: 6px;
-  }
+      .checkboxContainer:hover .checkbox {
+        border-color: #777;
+      }
 
-  .taskComplete {
-    text-decoration: line-through;
-    opacity: 0.6;
+      input[type="checkbox"]:checked + .checkbox {
+        background-color: white;
+        border-color: #777;
+      }
+
+      input[type="checkbox"]:checked + .checkbox::before {
+        @apply absolute;
+        content: "";
+        width: 6px;
+        height: 10px;
+        border: solid #4caf50;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        top: 3px;
+        left: 6px;
+      }
+
+      .taskComplete {
+        text-decoration: line-through;
+        opacity: 0.6;
+      }
+    }
   }
 }
 
-.taskList {
-  @apply bg-white;
+.taskListControl {
+  @apply flex justify-between p-4 h-9 items-center;
 
-  .taskListControl {
-    @apply flex justify-between p-4 h-9 items-center;
+  div > button {
+    @apply m-3;
+    border: 1px solid transparent;
+    padding: 3px;
+  }
 
-    div > button {
-      @apply m-3;
-      border: 1px solid transparent;
-      padding: 3px;
-    }
+  div > button:hover,
+  div > .active {
+    border: 1px solid rgba(105, 105, 105, 4);
+  }
+}
 
-    div > button:hover,
-    div > .active {
-      border: 1px solid rgba(105, 105, 105, 4);
+@media (max-width: 1050px) {
+  .taskList {
+    .taskListControl {
+      height: 10rem;
+      flex-direction: column;
     }
   }
 }

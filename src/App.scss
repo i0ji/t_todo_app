@@ -1,6 +1,7 @@
 main {
-  @apply p-4;
+  @apply p-4 flex flex-col;
   background-color: rgba(231, 229, 228, 0.664);
+  max-height: 80vh;
   width: calc(100vw - 30rem);
   min-width: 500px;
   max-width: 800px;
