@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { TaskModel } from "declarations/declarations";
 
 export const useTasks = () => {
   const [tasks, setTasks] = useState<TaskModel[]>([]);

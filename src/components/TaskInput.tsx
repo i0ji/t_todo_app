@@ -1,4 +1,3 @@
-import { TaskInputProps } from 'declarations/declarations';
 import React, { useState } from 'react';
 import styles from "./components.module.scss";
 import arrow from "assets/arrows.png";

@@ -1,4 +1,3 @@
-import { TaskItemProps } from 'declarations/declarations';
 import styles from "./components.module.scss";
 
 export default function TaskItem({ task, toggleTask }: TaskItemProps) {

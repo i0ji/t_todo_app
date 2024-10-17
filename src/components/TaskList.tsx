@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { TaskListProps } from 'declarations/declarations';
 import TaskItem from './TaskItem';
 import styles from "./components.module.scss";
 
@@ -25,9 +24,14 @@ export default function TaskList({
 
     return (
         <section className={styles.taskList}>
+
             <ul>
                 {filteredTasks.map((task) => (
-                    <TaskItem key={task.id} task={task} toggleTask={toggleTask} />
+                    <TaskItem
+                        key={task.id}
+                        task={task}
+                        toggleTask={toggleTask}
+                    />
                 ))}
             </ul>
 
@@ -40,6 +44,7 @@ export default function TaskList({
                 </div>
                 <button onClick={() => removeCompleteTasks()}>Clear completed</button>
             </div>
+
         </section>
     );
 };

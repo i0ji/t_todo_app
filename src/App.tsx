@@ -1,4 +1,4 @@
-import { useTasks } from './hooks/useTasks';
+import { useTasks } from 'hooks/useTasks';
 import { TaskList, TaskInput } from 'components/index';
 import './App.scss';
 
@@ -9,7 +9,11 @@ export default function App() {
     <main>
       <h1>todos</h1>
       <TaskInput addTask={addTask} />
-      <TaskList tasks={tasks} toggleTask={toggleTask} removeCompleteTasks={removeCompleteTasks} />
+      <TaskList
+        tasks={tasks}
+        toggleTask={toggleTask}
+        removeCompleteTasks={removeCompleteTasks}
+      />
     </main>
   );
 };
