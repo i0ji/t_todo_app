@@ -1,20 +1,22 @@
-export interface TaskItemProps {
+interface TaskItemProps {
   task: Task;
   toggleTask: (id: number) => void;
 }
 
-export interface TaskListProps {
+interface TaskListProps {
   tasks: TaskModel[];
   toggleTask: (id: number) => void;
   removeCompleteTasks: () => void;
 }
 
-export interface TaskInputProps {
+interface TaskInputProps {
   addTask: (title: string, completed: boolean) => void;
 }
 
-export interface TaskModel {
+interface TaskModel {
   id: number;
   title: string;
   completed: boolean;
 }
+
+type TaskStatusModel = "all" | "complet" | "incomplete";

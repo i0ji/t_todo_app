@@ -1,4 +1,4 @@
-import { useTasks } from './hooks/useTasks';
+import { useTasks } from 'hooks/useTasks';
 import { TaskList, TaskInput } from 'components/index';
 import './App.scss';
 

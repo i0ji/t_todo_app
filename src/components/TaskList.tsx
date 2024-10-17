@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { TaskListProps } from 'declarations/declarations';
 import TaskItem from './TaskItem';
 import styles from "./components.module.scss";
 
@@ -8,7 +7,7 @@ export default function TaskList({
     tasks,
     toggleTask,
     removeCompleteTasks }: TaskListProps) {
-    const [filter, setFilter] = useState<'all' | 'complet' | 'incomplete'>('all');
+    const [filter, setFilter] = useState<TaskStatusModel>('all');
     const [activeFilter, setActiveFilter] = useState('all');
 
     const filteredTasks = tasks.filter((task) => {
@@ -24,7 +23,7 @@ export default function TaskList({
 
     const itemsLeft = tasks.filter(task => !task.completed).length;
 
-    const handleFilterChange = (filter) => {
+    const handleFilterChange = (filter: TaskStatusModel) => {
         setActiveFilter(filter);
         setFilter(filter);
     };
