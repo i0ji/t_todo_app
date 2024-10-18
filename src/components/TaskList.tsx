@@ -62,7 +62,12 @@ export default function TaskList({
                     </button>
                 </div>
                 <button onClick={() => removeCompleteTasks()}>Clear completed</button>
+                
+      
             </div>
+            <div className={styles.upperLayout}></div>
+
+
         </>
     );
 };

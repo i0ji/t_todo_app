@@ -12,7 +12,8 @@
   }
 
   input::-webkit-input-placeholder {
-    opacity: 0.9;
+    opacity: 0.8;
+    font-style: italic;
   }
 
   button {
@@ -97,7 +98,7 @@
 }
 
 .taskListControl {
-  @apply grid items-center text-xs text-stone-500 bg-white px-4 z-30;
+  @apply grid items-center text-xs text-stone-500 bg-white px-4 z-30 relative;
   grid-template-columns: 20% 50% 30%;
   font-weight: 400;
   border-top: 1px solid rgba(128, 128, 128, 0.144);
@@ -120,7 +121,6 @@
     border-radius: 3px;
   }
 }
-
 @media (max-width: 1050px) {
   .taskListControl {
     height: 10rem;

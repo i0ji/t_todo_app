@@ -14,6 +14,8 @@ export default function App() {
         toggleTask={toggleTask}
         removeCompleteTasks={removeCompleteTasks}
       />
+      <div id='upperLayout'></div>
+      <div id='lowerLayout'></div>
     </main>
   );
 };
