@@ -5,6 +5,8 @@ import './App.scss';
 export default function App() {
   const { tasks, addTask, toggleTask, removeCompleteTasks } = useTasks();
 
+  console.log('V:0.1.1.1');
+
   return (
     <main>
       <h1>todos</h1>

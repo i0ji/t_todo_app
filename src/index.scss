@@ -10,4 +10,46 @@ body {
   width: 100vw;
   height: 80vh;
   color: black;
+
+  #root {
+    min-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 992px) {
+  body {
+    @apply flex justify-center bg-gray-50 my-20;
+    width: 100vw;
+    height: 80vh;
+
+    #root {
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+
+      main {
+        max-height: 83vh;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  body {
+    // width: 100%;
+    // height: 90vh;
+    margin: 0;
+
+    #root {
+      width: 100%;
+      margin-top: 30px;
+
+      main {
+        width: 90%;
+
+        height: 100%;
+      }
+    }
+  }
 }
