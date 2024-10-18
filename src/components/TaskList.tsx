@@ -7,7 +7,8 @@ export default function TaskList({
     tasks,
     toggleTask,
     removeCompleteTasks }: TaskListProps) {
-    const [filter, setFilter] = useState<'all' | 'complet' | 'incomplete'>('all');
+    const [filter, setFilter] = useState<TaskStatusModel>('all');
+    const [activeFilter, setActiveFilter] = useState('all');
 
     const filteredTasks = tasks.filter((task) => {
         if (filter === 'complet') {
@@ -22,29 +23,46 @@ export default function TaskList({
 
     const itemsLeft = tasks.filter(task => !task.completed).length;
 
+    const handleFilterChange = (filter: TaskStatusModel) => {
+        setActiveFilter(filter);
+        setFilter(filter);
+    };
+
     return (
-        <section className={styles.taskList}>
+        <>
+            <section className={styles.taskList}>
+                <ul>
+                    {filteredTasks.map((task) => (
+                        <TaskItem key={task.id} task={task} toggleTask={toggleTask} />
+                    ))}
+                </ul>
 
-            <ul>
-                {filteredTasks.map((task) => (
-                    <TaskItem
-                        key={task.id}
-                        task={task}
-                        toggleTask={toggleTask}
-                    />
-                ))}
-            </ul>
 
+            </section>
             <div className={styles.taskListControl}>
                 <p>{itemsLeft} item left</p>
                 <div>
-                    <button onClick={() => setFilter('all')}>All</button>
-                    <button onClick={() => setFilter('incomplete')}>Active</button>
-                    <button onClick={() => setFilter('complet')}>Completed</button>
+                    <button
+                        onClick={() => handleFilterChange('all')}
+                        className={activeFilter === 'all' ? styles.active : ''}
+                    >
+                        All
+                    </button>
+                    <button
+                        className={activeFilter === 'incomplete' ? styles.active : ''}
+                        onClick={() => handleFilterChange('incomplete')}
+                    >
+                        Active
+                    </button>
+                    <button
+                        className={activeFilter === 'complet' ? styles.active : ''}
+                        onClick={() => handleFilterChange('complet')}
+                    >
+                        Completed
+                    </button>
                 </div>
                 <button onClick={() => removeCompleteTasks()}>Clear completed</button>
             </div>
-
-        </section>
+        </>
     );
 };

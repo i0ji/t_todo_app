@@ -18,3 +18,5 @@ interface TaskModel {
   title: string;
   completed: boolean;
 }
+
+type TaskStatusModel = "all" | "complet" | "incomplete";
