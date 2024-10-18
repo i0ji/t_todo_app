@@ -28,6 +28,24 @@ export default function TaskList({
         setFilter(filter);
     };
 
+    let itemsLeftCounter = 'No items to do';
+
+    switch (itemsLeft) {
+        case 0:
+            itemsLeftCounter = 'No items to do';
+            break;
+        case 1:
+            itemsLeftCounter = '1 item left';
+            break;
+        default: {
+            itemsLeftCounter = `${itemsLeft} items left`;
+            break;
+        }
+    }
+
+
+
+
     return (
         <>
             <section className={styles.taskList}>
@@ -40,7 +58,7 @@ export default function TaskList({
 
             </section>
             <div className={styles.taskListControl}>
-                <p>{itemsLeft} {itemsLeft == 1 ? "item" : "items"} left</p>
+                <p>{itemsLeftCounter}</p>
                 <div>
                     <button
                         onClick={() => handleFilterChange('all')}
@@ -62,8 +80,8 @@ export default function TaskList({
                     </button>
                 </div>
                 <button onClick={() => removeCompleteTasks()}>Clear completed</button>
-                
-      
+
+
             </div>
             <div className={styles.upperLayout}></div>
 
