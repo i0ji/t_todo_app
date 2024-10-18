@@ -1,5 +1,5 @@
-import { useTasks } from 'hooks/useTasks';
-import { TaskList, TaskInput } from 'components/index';
+import { useTasks } from 'hooks/useTasks.ts';
+import { TaskList, TaskInput } from 'components/index.ts';
 import './App.scss';
 
 export default function App() {

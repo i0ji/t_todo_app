@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import TaskItem from './TaskItem';
+import TaskItem from './TaskItem.tsx';
 import styles from "./components.module.scss";
 
 
