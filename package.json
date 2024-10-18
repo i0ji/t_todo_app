@@ -6,9 +6,9 @@
   "scripts": {
     "start": "vite",
     "build": "tsc -b && vite build",
+    "simplebuild": "vite build",
     "lint": "eslint . --max-warnings 0",
     "test": "jest",
-    "predeploy": "rm -rf build && npm run build",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
