@@ -20,7 +20,6 @@ export default function TaskList({
         return true;
     });
 
-
     const itemsLeft = tasks.filter(task => !task.completed).length;
 
     const handleFilterChange = (filter: TaskStatusModel) => {
@@ -43,9 +42,6 @@ export default function TaskList({
         }
     }
 
-
-
-
     return (
         <>
             <section className={styles.taskList}>
@@ -54,8 +50,6 @@ export default function TaskList({
                         <TaskItem key={task.id} task={task} toggleTask={toggleTask} />
                     ))}
                 </ul>
-
-
             </section>
             <div className={styles.taskListControl}>
                 <p>{itemsLeftCounter}</p>
@@ -80,12 +74,8 @@ export default function TaskList({
                     </button>
                 </div>
                 <button onClick={() => removeCompleteTasks()}>Clear completed</button>
-
-
             </div>
             <div className={styles.upperLayout}></div>
-
-
         </>
     );
 };

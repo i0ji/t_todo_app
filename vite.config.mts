@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   base: "./",
   build: {
-    outDir: './build',
+    outDir: "./build",
     emptyOutDir: true,
   },
   resolve: {
@@ -24,7 +24,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        api: "modern-compiler"
+        api: "modern-compiler",
       },
     },
   },

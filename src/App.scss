@@ -14,7 +14,6 @@ main {
     @apply absolute z-20 bg-stone-100 self-center;
     height: 4px;
     width: calc(100% - 2.5rem);
-    // min-width: 300px;
     bottom: calc(1rem - 4px);
     box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.4);
     opacity: 0.9;
