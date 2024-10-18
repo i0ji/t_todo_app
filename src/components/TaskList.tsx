@@ -40,7 +40,7 @@ export default function TaskList({
 
             </section>
             <div className={styles.taskListControl}>
-                <p>{itemsLeft} item left</p>
+                <p>{itemsLeft} {itemsLeft == 1 ? "item" : "items"} left</p>
                 <div>
                     <button
                         onClick={() => handleFilterChange('all')}
