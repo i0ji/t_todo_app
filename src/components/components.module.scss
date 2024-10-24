@@ -96,7 +96,7 @@
   }
 
   div > button {
-    @apply my-3 mx-1 ;
+    @apply my-3 mx-1;
     border: 1px solid transparent;
     padding: 3px;
   }
@@ -107,6 +107,9 @@
     border-radius: 3px;
   }
 }
+
+
+//TODO
 
 @media (max-width: 1250px) {
   .taskListControl {
@@ -139,4 +142,3 @@
     opacity: 0.7;
   }
 }
-
