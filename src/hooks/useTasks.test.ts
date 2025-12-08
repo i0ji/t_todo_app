@@ -1,4 +1,4 @@
-import { renderHook, act } from "../../testUtils.ts";
+import { renderHook, act } from '@testing-library/react';
 import { useTasks } from "./useTasks.ts";
 
 describe("useTasks Hook", () => {

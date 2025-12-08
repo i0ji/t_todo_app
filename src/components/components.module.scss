@@ -38,7 +38,7 @@
         @apply pr-2;
       }
 
-      input[type="checkbox"] {
+      input[type='checkbox'] {
         display: none;
       }
 
@@ -59,14 +59,14 @@
         border-color: #777;
       }
 
-      input[type="checkbox"]:checked + .checkbox {
+      input[type='checkbox']:checked + .checkbox {
         @apply bg-white;
         border-color: #777;
       }
 
-      input[type="checkbox"]:checked + .checkbox::before {
+      input[type='checkbox']:checked + .checkbox::before {
         @apply absolute;
-        content: "";
+        content: '';
         width: 6px;
         height: 10px;
         border: solid #4caf50;
@@ -107,7 +107,6 @@
     border-radius: 3px;
   }
 }
-
 
 //TODO
 

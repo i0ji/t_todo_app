@@ -1,9 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@import "styles/_reset.scss";
-@import "styles/_font.scss";
-@import "styles/_scroll.scss";
+@use "tailwindcss";
+@use "styles/_reset.scss";
+@use "styles/_font.scss";
+@use "styles/_scroll.scss";
 
 body {
   @apply flex justify-center bg-gray-50 my-20;
